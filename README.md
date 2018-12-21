@@ -14,7 +14,7 @@ lerna bootstrap
 
 ### Registration
 
-Open `~/.ark/config/plugins.js` and add the following at the end (it has to be bellow p2p and api).
+Open `~/.ark/config/plugins.js` and add the following at the end.
 
 ```js
 '@deadlock/arkdelegates-plugin': {}
@@ -28,7 +28,7 @@ module.exports = {
   '@arkecosystem/core-config': {},
   ...
   '@deadlock/notifier': {
-    enabled: false,
+    enabled: true,
     consumerKey: '',
     consumerSecret: '',
     accessToken: '',
@@ -36,23 +36,6 @@ module.exports = {
   }
 }
 ```
-
-### Configuration
-
-```js
-{
-  enabled: true,  // true/false if you want to enable/disable the plugin
-  {
-    endpoint: 'webhook endpoint url',
-    payload: {
-      msg: 'name of the message field eg. discord has "content", slack has "text"'
-    },
-    events: ['list of events you want to subscribe to']
-  }
-}
-```
-
-- [ ] transaction.reverted
 
 ## Credits
 
