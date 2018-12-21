@@ -1,0 +1,46 @@
+{
+  "name": "@deadlock/arkdelegates-plugin",
+  "version": "0.1.0",
+  "description": "ARKdelegates plugin",
+  "author": "roks0n",
+  "license": "MIT",
+  "keywords": [
+    "core",
+    "blockchain",
+    "ark",
+    "crypto",
+    "dpos",
+    "logging",
+    "http",
+    "requests"
+  ],
+  "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deadlock-delegate/arkdelegates-plugin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/deadlock-delegate/arkdelegates-plugin/issues"
+  },
+  "homepage": "https://github.com/deadlock-delegate/arkdelegates-plugin",
+  "scripts": {
+    "test": "ARK_ENV=test jest --runInBand --forceExit",
+    "lint": "eslint ./ --fix"
+  },
+  "dependencies": {
+    "@arkecosystem/core-container": "^0.2.0",
+    "twit": "^2.2.11"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.7.0",
+    "eslint-plugin-standard": "^3.1.0",
+    "husky": "^0.14.3",
+    "jest": "^22.4.3",
+    "jest-extended": "^0.7.1",
+    "standard": "^11.0.1"
+  }
+}
