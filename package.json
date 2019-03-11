@@ -28,7 +28,6 @@
     "lint": "eslint ./ --fix"
   },
   "dependencies": {
-    "@arkecosystem/core-container": "^2.1.0",
     "twit": "^2.2.11"
   },
   "devDependencies": {
