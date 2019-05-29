@@ -1,5 +1,5 @@
 {
-  "name": "@deadlock/arkdelegates-plugin",
+  "name": "@deadlock-delegates/arkdelegates-plugin",
   "version": "0.1.0",
   "description": "ARKdelegates plugin",
   "author": "roks0n",
@@ -10,9 +10,7 @@
     "ark",
     "crypto",
     "dpos",
-    "logging",
-    "http",
-    "requests"
+    "arkdelegates"
   ],
   "main": "lib/index.js",
   "repository": {
