@@ -1,5 +1,5 @@
 {
-  "name": "@deadlock/arkdelegates-plugin",
+  "name": "@deadlock-delegate/arkdelegates-plugin",
   "version": "0.2.0",
   "description": "ARKdelegates plugin",
   "author": "roks0n",
