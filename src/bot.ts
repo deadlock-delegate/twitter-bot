@@ -42,16 +42,21 @@ export default class Bot {
                 )) as Contracts.State.Wallet[];
                 if (!latestDelegates) return;
 
-                const block = this.stateStore.getLastBlock();
-                const { round } = AppUtils.roundCalculator.calculateRound(block.data.height);
-
                 const newActiveDelegates = latestDelegates.map((wallet) => wallet.getAttribute("delegate.username"));
+                if (previouslyActiveDelegates.length == 0) {
+                    LAST_ACTIVE_DELEGATES_CACHED = newActiveDelegates;
+                    return;
+                }
+
                 const droppedOutDelegates = previouslyActiveDelegates.filter((x) => !newActiveDelegates.includes(x));
                 const newDelegates = newActiveDelegates.filter((x) => !previouslyActiveDelegates.includes(x));
 
                 if (droppedOutDelegates.length === 0 && newDelegates.length === 0) {
                     return;
                 }
+
+                const block = this.stateStore.getLastBlock();
+                const { round } = AppUtils.roundCalculator.calculateRound(block.data.height);
 
                 let TW_DEV_PREFIX = "";
                 if (this.app.network() !== "mainnet") {
