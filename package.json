@@ -1,6 +1,6 @@
 {
   "name": "@deadlock-delegate/twitter-bot",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Twitter bot plugin for core",
   "author": "deadlock",
   "license": "MIT",
@@ -31,7 +31,7 @@
     "clean": "del dist"
   },
   "dependencies": {
-    "@arkecosystem/crypto": "^3.0.0",
+    "@arkecosystem/core-kernel": "^3.0.0",
     "twit": "^2.2.11"
   },
   "devDependencies": {
