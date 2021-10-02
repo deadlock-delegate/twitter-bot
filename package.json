@@ -1,8 +1,8 @@
 {
-  "name": "@deadlock-delegate/arkdelegates-plugin",
-  "version": "0.2.0",
-  "description": "ARKdelegates plugin",
-  "author": "roks0n",
+  "name": "@deadlock-delegate/twitter-bot",
+  "version": "1.0.0",
+  "description": "Twitter bot plugin for core",
+  "author": "deadlock",
   "license": "MIT",
   "keywords": [
     "core",
@@ -10,36 +10,31 @@
     "ark",
     "crypto",
     "dpos",
-    "logging",
-    "http",
-    "requests"
+    "twitter",
+    "bot"
   ],
-  "main": "lib/index.js",
+  "main": "dist/service-provider.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deadlock-delegate/arkdelegates-plugin.git"
+    "url": "git+https://github.com/deadlock-delegate/twitter-bot.git"
   },
   "bugs": {
-    "url": "https://github.com/deadlock-delegate/arkdelegates-plugin/issues"
+    "url": "https://github.com/deadlock-delegate/twitter-bot/issues"
   },
-  "homepage": "https://github.com/deadlock-delegate/arkdelegates-plugin",
+  "homepage": "https://github.com/deadlock-delegate/twitter-bot",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "test": "ARK_ENV=test jest --runInBand --forceExit",
-    "lint": "eslint ./ --fix"
+    "compile": "../../node_modules/typescript/bin/tsc",
+    "build": "yarn clean && yarn compile",
+    "clean": "del dist"
   },
   "dependencies": {
+    "@arkecosystem/crypto": "^3.0.0",
     "twit": "^2.2.11"
   },
   "devDependencies": {
-    "eslint": "^4.19.1",
-    "eslint-config-standard": "^11.0.0",
-    "eslint-plugin-import": "^2.11.0",
-    "eslint-plugin-node": "^6.0.1",
-    "eslint-plugin-promise": "^3.7.0",
-    "eslint-plugin-standard": "^3.1.0",
-    "husky": "^0.14.3",
-    "jest": "^22.4.3",
-    "jest-extended": "^0.7.1",
-    "standard": "^11.0.1"
+    "@types/twit": "^2.2.30"
   }
 }

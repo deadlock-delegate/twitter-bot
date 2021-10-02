@@ -1,46 +1,75 @@
-# ARKdelegates.io plugin
+# Ark Core Twitter BoT
 
-Plugin used by arkdelegatesio Twitter account
+Plugin used by @arkdelegates Twitter account
 
 #### ❤️ Support maintenance and development of plugins
-If you find this or other plugins useful please consider
-
-- voting for `deadlock` delegate
-- donating to `AWtgFYbvtLDYccJvC5MChk4dpiUy2Krt2U`
-
-to support development new plugins and tools for Ark's Ecosystem and maintenance of existing ones. Full list of contributions can be found on [https://arkdelegatesio/delegate/deadlock/](https://arkdelegates.io/delegate/deadlock/contributions/). 🖖
+If you find this or other plugins useful please consider voting for `deadlock` delegate to support development of new plugins and tools for Ark's Ecosystem and maintenance of existing ones. Full list of contributions can be found on [https://arkdelegates.live/delegate/deadlock/](https://arkdelegates.io/delegate/deadlock/contributions/). 🖖
 
 ## Installation
 
-### Clone
+### Adding plugin to config
 
-```bash
-cd ~/ark-core/plugins
-git clone https://github.com/deadlock-delegate/arkdelegates-plugin
-lerna bootstrap
+Before restarting your process, you need to add the plugin into the very end  `core.plugins` or `relay.plugins` section of `app.json` file:
+
+```json
+{
+    "package": "@deadlock-delegate/twitter-bot",
+    "options": {
+        "enabled": true,
+        "webhooks": [{
+          "endpoint": "https://discordapp.com/api/webhooks/612412465124612462/A1Ag12F&ijafa-3mtASA121mja",
+          "payload": {
+            "msg": "content"
+          },
+          "events": ["wallet.vote", "wallet.unvote", "forger.missing", "forger.failed"]
+        }, {
+          "endpoint": "https://hooks.slack.com/services/T1212ASDA/BAEWAS12/ASxASJL901ajkS",
+          "payload": {
+            "msg": "text"
+          },
+          "events": ["wallet.vote", "wallet.unvote", "forger.missing", "forger.failed"]
+        },
+        {
+          "endpoint": "https://api.pushover.net/",
+          "payload": {
+            "msg": "message",
+            "user": "<pushover user key>",
+            "token": "<pushover token>"
+          },
+          "events": ["forger.missing", "forger.failed"]
+        }]
+      }
+    }
+}
 ```
 
-### Registration
+### For production (eg. devnet/mainnet):
 
-Open `~/.ark/config/plugins.js` and add the following at the end.
+1. Install plugin: `ark plugin:install @deadlock-delegate/twitter-bot`
+2. Add plugin to `app.json`
+3. Start your node as you usually start it 
 
-```js
-'@deadlock/arkdelegates-plugin': {}
-```
+### For development (eg. testnet):
 
-like so:
+Assuming you don't run testnet locally via docker:
 
-```js
-module.exports = {
-  '@arkecosystem/core-event-emitter': {},
-  '@arkecosystem/core-config': {},
-  ...
-  '@deadlock/notifier': {
-    enabled: true,
-    consumerKey: '',
-    consumerSecret: '',
-    accessToken: '',
-    accessTokenSecret: ''
+1. Clone this plugin into `plugins/` directory of the [core](https://github.com/ArkEcosystem/core/) project
+2. Add plugin to `app.json`, for testnet the file can be found in: `core/packages/core/bin/config/testnet/app.json`
+3. Go into the plugin's directory: `cd twitter-bot`
+4. Build plugin: `yarn build`
+5. Run `yarn full:testnet` inside `core/packages/core` directory to start testnet with notifier plugin
+
+### Configuration explanation
+
+```json
+{
+  "package": "@deadlock-delegate/twitter-bot",
+  "options": {
+    "enabled": true,
+    "consumerKey": "",
+    "consumerSecret": "",
+    "accessToken": "",
+    "accessTokenSecret": "",
   }
 }
 ```
@@ -48,8 +77,9 @@ module.exports = {
 ## Credits
 
 - [roks0n](https://github.com/roks0n)
+- [c0nsol3](https://github.com/c0nsol3)
 - [All Contributors](../../../../contributors)
 
 ## License
 
-[MIT](LICENSE) © roks0n
+[MIT](LICENSE) © deadlock
