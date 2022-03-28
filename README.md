@@ -1,9 +1,10 @@
-# Ark Core Twitter BoT
+# Core Twitter BoT
 
-Plugin used by @arkdelegates Twitter account
+Plugin used by @arkdelegates and @solardelegates Twitter account
 
 #### ❤️ Support maintenance and development of plugins
-If you find this or other plugins useful please consider voting for `deadlock` delegate to support development of new plugins and tools for Ark's Ecosystem and maintenance of existing ones. Full list of contributions can be found on [https://arkdelegates.live/delegate/deadlock/](https://arkdelegates.io/delegate/deadlock/contributions/). 🖖
+If you find this or other plugins useful please consider voting for `deadlock` delegate on Solar or Ark networks.
+
 
 ## Installation
 
@@ -13,43 +14,23 @@ Before restarting your process, you need to add the plugin into the very end  `c
 
 ```json
 {
-    "package": "@deadlock-delegate/twitter-bot",
-    "options": {
-        "enabled": true,
-        "webhooks": [{
-          "endpoint": "https://discordapp.com/api/webhooks/612412465124612462/A1Ag12F&ijafa-3mtASA121mja",
-          "payload": {
-            "msg": "content"
-          },
-          "events": ["wallet.vote", "wallet.unvote", "forger.missing", "forger.failed"]
-        }, {
-          "endpoint": "https://hooks.slack.com/services/T1212ASDA/BAEWAS12/ASxASJL901ajkS",
-          "payload": {
-            "msg": "text"
-          },
-          "events": ["wallet.vote", "wallet.unvote", "forger.missing", "forger.failed"]
-        },
-        {
-          "endpoint": "https://api.pushover.net/",
-          "payload": {
-            "msg": "message",
-            "user": "<pushover user key>",
-            "token": "<pushover token>"
-          },
-          "events": ["forger.missing", "forger.failed"]
-        }]
-      }
-    }
+  "package": "@deadlock-delegate/twitter-bot",
+  "options": {
+    "enabled": true,
+    "consumerKey": "",
+    "consumerSecret": "",
+    "accessToken": "",
+    "accessTokenSecret": "",
+  }
 }
 ```
 
-### For production (eg. devnet/mainnet):
+### For production (eg. mainnet/testnet/devnet):
 
-1. Install plugin: `ark plugin:install @deadlock-delegate/twitter-bot`
-2. Add plugin to `app.json`
+1. Install plugin: `<command> plugin:install @deadlock-delegate/notifier`, eg: `ark plugin:install @deadlock-delegate/notifier` or `solar plugin:install @deadlock-delegate/notifier`2. Add plugin to `app.json`
 3. Start your node as you usually start it 
 
-### For development (eg. testnet):
+### For development:
 
 Assuming you don't run testnet locally via docker:
 
