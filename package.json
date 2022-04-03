@@ -1,6 +1,6 @@
 {
   "name": "@deadlock-delegate/twitter-bot",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Twitter bot plugin for core",
   "author": "deadlock",
   "license": "MIT",
