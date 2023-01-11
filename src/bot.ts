@@ -67,12 +67,12 @@ export default class Bot {
                     this.logger.debug(
                         `${LOG_PREFIX} Tweeting about removed forging delegate ${delegate} in round ${round}`,
                     );
-                    this.tweet(`${TW_DEV_PREFIX}🚨 ${delegate} removed from forging position in round ${round}`);
+                    this.tweet(`${TW_DEV_PREFIX}🚨 ${delegate} removed from active block producer position in round ${round}`);
                 }
 
                 for (const delegate of newDelegates) {
                     console.log(`${LOG_PREFIX} Tweeting about a new forging delegate ${delegate} in round ${round}`);
-                    this.tweet(`${TW_DEV_PREFIX}👏 ${delegate} elected to be a forging delegate in round ${round}`);
+                    this.tweet(`${TW_DEV_PREFIX}👏 ${delegate} elected to be an active block producer in round ${round}`);
                 }
 
                 // cache new active delegates for the next round so we know which ones change
